@@ -1,6 +1,6 @@
 "use strict"
 const{Sequelize,DataTypes}=require("sequelize")
-const sequelize=new Sequelize("sqlite:./db.sqlite3'")
+const sequelize = new Sequelize('sqlite:./db.sqlite3')
 const Book=sequelize.define("books",{
     title:{
         type:DataTypes.STRING,
@@ -23,12 +23,13 @@ const Book=sequelize.define("books",{
         allowNull:false
     },
     image:{
-        type:DataTypes.TEXT,
+        type:DataTypes.STRING,
         allowNull:false
     }
 })
 
-sequelize.sync()
+//  sequelize.sync()
+// sequelize.sync({ alter: true }) // TO BACKUP & DROP TABLE & CREATE TABLE & FROM BACKUP
 sequelize.authenticate()
 .then(()=>console.log("*DB Connection is Succesfull*"))
 .catch(()=>console.log("*DB Connection Failed"))

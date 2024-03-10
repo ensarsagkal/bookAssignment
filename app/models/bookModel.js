@@ -35,4 +35,4 @@ sequelize.authenticate()
 
 
 
-module.exports = bookModel
+module.exports = Book

@@ -1,6 +1,7 @@
 "use strict"
 const{Sequelize,DataTypes}=require("sequelize")
-const sequelize = new Sequelize('sqlite:./db.sqlite3')
+// const sequelize = new Sequelize('sqlite:./db.sqlite3')
+const sequelize = new Sequelize('postgres://userBook:12345678@localhost:5432/bookApp')
 const Book=sequelize.define("books",{
     title:{
         type:DataTypes.STRING,
@@ -28,7 +29,7 @@ const Book=sequelize.define("books",{
     }
 })
 
-//  sequelize.sync()
+//
 // sequelize.sync({ alter: true }) // TO BACKUP & DROP TABLE & CREATE TABLE & FROM BACKUP
 sequelize.authenticate()
 .then(()=>console.log("*DB Connection is Succesfull*"))
